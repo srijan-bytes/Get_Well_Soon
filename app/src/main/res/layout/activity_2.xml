@@ -39,8 +39,8 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="DegreeandSpecialization"
             android:ems="10"
+            android:hint="Degree"
             android:inputType="text"
             android:textSize="20sp"
 
@@ -57,8 +57,8 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Collage"
             android:ems="10"
+            android:hint="College"
             android:inputType="text"
             android:textSize="20sp"
 
@@ -94,8 +94,8 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Open Time"
             android:ems="10"
+            android:hint="Open Time/Close Time"
             android:inputType="text"
             android:textSize="20sp"
 
@@ -107,18 +107,7 @@
         android:focusable="true"
         android:focusableInTouchMode="true"
 
-        >
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Location"
-            android:ems="10"
-            android:inputType="text"
-            android:textSize="20sp"
-
-            />
-    </com.google.android.material.textfield.TextInputLayout>
+        />
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -155,42 +144,29 @@
 
             />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <EditText
+        android:id="@+id/editText3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Password(*Please dont forget it)"
+        android:inputType="textPassword" />
+
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:focusable="true"
         android:focusableInTouchMode="true"
 
-        >
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Password"
-            android:ems="10"
-            android:inputType="text"
-            android:textSize="20sp"
-
-            />
-    </com.google.android.material.textfield.TextInputLayout>
+        />
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:focusable="true"
         android:focusableInTouchMode="true"
 
-        >
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Description"
-            android:ems="10"
-            android:inputType="text"
-            android:textSize="20sp"
-
-            />
-    </com.google.android.material.textfield.TextInputLayout>
+        />
 
     <LinearLayout
         android:layout_width="match_parent"
