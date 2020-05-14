@@ -76,8 +76,8 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Expanses"
             android:ems="10"
+            android:hint="Expenses"
             android:inputType="text"
             android:textSize="20sp"
 
@@ -191,15 +191,29 @@
 
             />
     </com.google.android.material.textfield.TextInputLayout>
-    
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:text="Authenticate"
-        android:textSize="22sp"
-        android:textColor="#ffffff"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/button_rounded"
 
-        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/button_rounded"
+            android:onClick="previous"
+            android:text="PREVIOUS" />
+
+        <Button
+            android:id="@+id/button9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/button_rounded"
+            android:onClick="next"
+            android:text="NEXT" />
+    </LinearLayout>
+
 </LinearLayout>
