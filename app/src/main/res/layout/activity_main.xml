@@ -7,28 +7,26 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/b01"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="203dp"
         android:layout_marginEnd="160dp"
         android:layout_marginBottom="133dp"
-        android:onClick="doctor"
         android:text="Doctor"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/b02"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/b02"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="133dp"
         android:layout_marginEnd="160dp"
         android:layout_marginBottom="299dp"
-        android:onClick="patient"
         android:text="Patient"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/b01" />
 </androidx.constraintlayout.widget.ConstraintLayout>

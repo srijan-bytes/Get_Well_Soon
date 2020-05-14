@@ -5,6 +5,7 @@ import android.app.Activity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -22,18 +23,26 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.get_well_soon.Activity1;
 import com.example.get_well_soon.R;
 import com.example.get_well_soon.ui.login.LoginViewModel;
 import com.example.get_well_soon.ui.login.LoginViewModelFactory;
 
 public class LoginActivity extends AppCompatActivity {
-
+    Button previous;
     private LoginViewModel loginViewModel;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        previous=findViewById(R.id.blogin1);
+        previous.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                previous();
+            }
+        });
         loginViewModel = ViewModelProviders.of(this, new LoginViewModelFactory())
                 .get(LoginViewModel.class);
 
@@ -117,6 +126,7 @@ public class LoginActivity extends AppCompatActivity {
                         passwordEditText.getText().toString());
             }
         });
+
     }
 
     private void updateUiWithUser(LoggedInUserView model) {
@@ -131,5 +141,10 @@ public class LoginActivity extends AppCompatActivity {
     private void sign(View view)
     {
 
+    }
+    private void previous()
+    {
+        Intent i=new Intent(this, Activity1.class);
+        startActivity(i);
     }
 }
