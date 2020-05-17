@@ -32,7 +32,7 @@
             android:layout_width="393dp"
             android:layout_height="48dp"
             android:ems="10"
-            android:hint="Location"
+            android:hint="Get User's Location"
             android:inputType="textPersonName"
             android:text="LOCATION" />
 
@@ -51,7 +51,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
         <Button
-            android:id="@+id/button5"
+            android:id="@+id/b211"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
