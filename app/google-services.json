@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "739847070671",
+    "firebase_url": "https://getwellsoon-4da6f.firebaseio.com",
+    "project_id": "getwellsoon-4da6f",
+    "storage_bucket": "getwellsoon-4da6f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:739847070671:android:1c48f2cc4fe2275cd3e8ba",
+        "android_client_info": {
+          "package_name": "com.example.get_well_soon"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "739847070671-r3oi7b4cc0ct6usu83d8h1ain3j5k0fk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.get_well_soon",
+            "certificate_hash": "3fe1edcb7e844a4a8e50d39b70360d266651800d"
+          }
+        },
+        {
+          "client_id": "739847070671-stouq0ounse6q6e3rqoh2q06kk8e9reo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVTJwa3E1Pu8NaOah5ZfAf4TVHmQj_d4Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "739847070671-stouq0ounse6q6e3rqoh2q06kk8e9reo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
