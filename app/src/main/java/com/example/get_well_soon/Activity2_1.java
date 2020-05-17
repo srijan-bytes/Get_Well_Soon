@@ -6,6 +6,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -29,7 +30,9 @@ public class Activity2_1 extends AppCompatActivity implements AdapterView.OnItem
     TextView userlocation;
     LocationManager locationManager ;
     LocationListener locationListener;
-    Button previous;
+    Button previous,verify;
+    String phonenumber="";
+    EditText phone;
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -42,6 +45,7 @@ public class Activity2_1 extends AppCompatActivity implements AdapterView.OnItem
         }
     }
 
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,10 +63,30 @@ public class Activity2_1 extends AppCompatActivity implements AdapterView.OnItem
             }
         });
         previous=(Button)findViewById(R.id.b211);
+        phone=(EditText) findViewById(R.id.editText9);
+        verify=(Button)findViewById(R.id.b212);
+        phonenumber=phone.getText().toString();
+
         previous.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Activity2_1.this, Activity1.class));
+                startActivity(new Intent(Activity2_1.this, Activity2.class));
+            }
+        });
+        verify.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                phonenumber=phone.getText().toString();
+                if(phonenumber!="")
+                {
+                    Intent intent = new Intent(getApplicationContext(), Activity3.class);
+                    intent.putExtra("phoneNo", phonenumber);
+                    startActivity(intent);
+                }
+                else
+                {
+                    Toast.makeText(Activity2_1.this, "Enter Phone Number", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
