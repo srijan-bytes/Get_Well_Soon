@@ -32,7 +32,8 @@ public class Activity2_1 extends AppCompatActivity implements AdapterView.OnItem
     LocationListener locationListener;
     Button previous,verify;
     String phonenumber="";
-    EditText phone;
+    EditText phone,description;
+    String specialization1="",description1="",location1="",phone1="";
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -66,6 +67,8 @@ public class Activity2_1 extends AppCompatActivity implements AdapterView.OnItem
         phone=(EditText) findViewById(R.id.editText9);
         verify=(Button)findViewById(R.id.b212);
         phonenumber=phone.getText().toString();
+        spinner=(Spinner)findViewById(R.id.spinner211);
+        description=(EditText)findViewById(R.id.editText4);
 
         previous.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,18 +80,31 @@ public class Activity2_1 extends AppCompatActivity implements AdapterView.OnItem
             @Override
             public void onClick(View v) {
                 phonenumber=phone.getText().toString();
+                specialization1=spinner.getSelectedItem().toString();
+                description1=description.getText().toString();
+                location1=userlocation.getText().toString();
+                phone1=phone.getText().toString();
+                Intent intent=new Intent(getApplicationContext(),Activity4.class);
+                intent.putExtra("specialization", specialization1);
+                intent.putExtra("description", description1);
+                intent.putExtra("location", location1);
+                intent.putExtra("phone", phone1);
                 if(phonenumber!="")
                 {
-                    Intent intent = new Intent(getApplicationContext(), Activity3.class);
-                    intent.putExtra("phoneNo", phonenumber);
-                    startActivity(intent);
+                    Intent i = new Intent(getApplicationContext(), Activity3.class);
+                    i.putExtra("phoneNo", phonenumber);
+                    startActivity(i);
                 }
                 else
                 {
                     Toast.makeText(Activity2_1.this, "Enter Phone Number", Toast.LENGTH_SHORT).show();
                 }
+
+
             }
         });
+
+
     }
 
 

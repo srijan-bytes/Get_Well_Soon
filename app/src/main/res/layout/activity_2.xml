@@ -10,7 +10,7 @@
     tools:context=".Activity2">
 
     <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
+        android:layout_width="354dp"
         android:layout_height="wrap_content"
         android:focusable="true"
         android:focusableInTouchMode="true"
@@ -18,16 +18,16 @@
         >
 
         <EditText
+            android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Full Name"
+            android:editable="true"
             android:ems="10"
-            android:inputType="text"
-            android:textSize="20sp"
+            android:hint="Full Name"
+            android:inputType="textPersonName" />
 
-
-            />
     </com.google.android.material.textfield.TextInputLayout>
+
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -37,14 +37,15 @@
         >
 
         <EditText
+            android:id="@+id/degree"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:editable="true"
             android:ems="10"
             android:hint="Degree"
-            android:inputType="text"
-            android:textSize="20sp"
 
-            />
+            android:inputType="text"
+            android:textSize="20sp" />
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -55,14 +56,15 @@
         >
 
         <EditText
+            android:id="@+id/college"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:editable="true"
             android:ems="10"
             android:hint="College"
-            android:inputType="text"
-            android:textSize="20sp"
 
-            />
+            android:inputType="text"
+            android:textSize="20sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -74,14 +76,15 @@
         >
 
         <EditText
+            android:id="@+id/fees"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:editable="true"
             android:ems="10"
             android:hint="Expenses"
-            android:inputType="text"
-            android:textSize="20sp"
 
-            />
+            android:inputType="text"
+            android:textSize="20sp" />
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -92,52 +95,52 @@
         >
 
         <EditText
+            android:id="@+id/opentime"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="46dp"
+            android:editable="true"
             android:ems="10"
-            android:hint="Open Time/Close Time"
-            android:inputType="text"
-            android:textSize="20sp"
+            android:hint="Open Time"
 
-            />
-    </com.google.android.material.textfield.TextInputLayout>
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-
-        />
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-
-        />
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-
-        >
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Email"
-            android:ems="10"
-            android:inputType="text"
-            android:textSize="20sp"
-
-            />
+            android:inputType="time"
+            android:textSize="20sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/closetime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:editable="true"
+        android:ems="10"
+        android:hint="Close Time"
+        android:inputType="time"
+        android:textSize="20sp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+
+        >
+
+        <EditText
+            android:id="@+id/mail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:editable="true"
+            android:ems="10"
+            android:hint="Email"
+
+            android:inputType="text|textEmailAddress"
+            android:textSize="20sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <EditText
+        android:id="@+id/pass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:editable="true"
         android:ems="10"
         android:hint="Password(*Please dont forget it)"
         android:inputType="textPassword" />
@@ -158,8 +161,8 @@
         />
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="354dp"
+        android:layout_height="167dp"
         android:orientation="horizontal">
 
         <Button
