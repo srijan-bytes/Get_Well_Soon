@@ -4,12 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_blue_bright"
+    android:background="@android:color/holo_blue_light"
     android:orientation="vertical"
     android:padding="30dp"
-    tools:context=".MainActivity"
-    >
+    tools:context=".MainActivity">
 
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="356dp"
+        android:layout_height="65dp"
+        android:text="Welcome Patient"
+        android:textSize="30sp" />
+
+    <ToggleButton
+        android:id="@+id/toggleButton"
+        android:layout_width="365dp"
+        android:layout_height="wrap_content"
+        android:textOff="Click here to use as doctor"
+        android:textOn="Click here to use patient" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="354dp"
@@ -26,8 +39,8 @@
             android:layout_marginTop="100dp"
             android:editable="true"
             android:ems="10"
-            android:text="Email"
             android:inputType="text"
+            android:text="Email"
             android:textSize="30sp"
 
             />
@@ -49,11 +62,12 @@
             android:layout_marginTop="100dp"
             android:editable="true"
             android:ems="10"
-            android:text="Password"
-
             android:inputType="text"
+
+            android:text="Password"
             android:textSize="30sp" />
     </com.google.android.material.textfield.TextInputLayout>
+
     <LinearLayout
         android:layout_width="354dp"
         android:layout_height="167dp"
@@ -63,34 +77,34 @@
             android:id="@+id/button4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
             android:layout_weight="1"
             android:background="@drawable/button_rounded"
-            android:text="SIGN IN"
-            android:layout_marginTop="30dp"/>
+            android:text="SIGN IN" />
 
         <Button
             android:id="@+id/button5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
             android:layout_weight="1"
             android:background="@drawable/button_rounded"
-            android:text="REGISTER"
-            android:layout_marginTop="30dp"/>
+            android:text="REGISTER" />
 
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="354dp"
         android:layout_height="167dp"
         android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/b01"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:background="@drawable/button_rounded"
-        android:text="Doctor"
-         />
+        <Button
+            android:id="@+id/b01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/button_rounded"
+            android:text="Doctor" />
 
         <Button
             android:id="@+id/b02"
@@ -99,8 +113,7 @@
             android:layout_weight="1"
             android:background="@drawable/button_rounded"
 
-            android:text="Patient"
-             />
+            android:text="Patient" />
 
 
     </LinearLayout>
