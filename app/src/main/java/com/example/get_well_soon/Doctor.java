@@ -1,21 +1,26 @@
 package com.example.get_well_soon;
 
 public class Doctor {
-    private String name,college,degree,fees,opentime,closetime,pass,specialization,
-            description,location,email;
+    public String name,college,degree,fees,opentime,closetime,pass,specialization,
+            description,location,email,phone,city;
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    private String phone;
     public Doctor() {
-        name="";degree="";college="";fees="";opentime="";closetime="";
-                email="";pass="";specialization="";description="";location="";phone="";
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public String getName() {
@@ -98,13 +103,11 @@ public class Doctor {
         this.location = location;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getEmail() {
+        return email;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setEmail(String email) {
+        this.email = email;
     }
-
-
 }

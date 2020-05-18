@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class Activity2 extends AppCompatActivity {
+
     EditText name;
     EditText degree;
     EditText college;
@@ -19,8 +20,9 @@ public class Activity2 extends AppCompatActivity {
     EditText closetime;
     EditText email;
     EditText pass;
-    String name1="",degree1="",college1="",fees1="",opentime1="",closetime1="",email1="",pass1="";
+    EditText city;
     Button next,previous;
+    String name1,degree1,college1,fees1,opentime1,closetime1,email1,pass1,city1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +35,7 @@ public class Activity2 extends AppCompatActivity {
         closetime=(EditText)findViewById(R.id.closetime);
         email=(EditText)findViewById(R.id.mail);
         pass=(EditText)findViewById(R.id.pass);
+        city=(EditText)findViewById(R.id.city);
 
         next=(Button)findViewById(R.id.b22);
         previous=(Button)findViewById(R.id.b21);
@@ -62,8 +65,8 @@ public class Activity2 extends AppCompatActivity {
         closetime1=closetime.getText().toString();
         email1=email.getText().toString();
         pass1=pass.getText().toString();
-
-        Intent intent = new Intent(getApplicationContext(), Activity4.class);
+        city1=city.getText().toString().trim().toLowerCase();
+        Intent intent = new Intent(getApplicationContext(), Activity2_1.class);
         intent.putExtra("name",name1);
         intent.putExtra("degree",degree1);
         intent.putExtra("college", college1);
@@ -72,10 +75,9 @@ public class Activity2 extends AppCompatActivity {
         intent.putExtra("closetime", closetime1);
         intent.putExtra("email" ,email1);
         intent.putExtra("pass", pass1);
+        intent.putExtra("city", city1);
 
-
-        Intent i=new Intent(this, Activity2_1.class);
-        startActivity(i);
+        startActivity(intent);
     }
 
     private void previous()

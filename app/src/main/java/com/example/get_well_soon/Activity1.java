@@ -46,6 +46,7 @@ public class Activity1 extends AppCompatActivity {
     {
         Intent i=new Intent(this, Activity2.class);
         startActivity(i);
+
     }
     public void previous()
     {
