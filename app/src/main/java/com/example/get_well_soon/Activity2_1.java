@@ -25,6 +25,20 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.android.gms.tasks.TaskExecutors;
+import com.google.firebase.FirebaseException;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.PhoneAuthCredential;
+import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.concurrent.TimeUnit;
+
 public class Activity2_1 extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     Spinner spinner;
     TextView userlocation;
@@ -32,8 +46,16 @@ public class Activity2_1 extends AppCompatActivity implements AdapterView.OnItem
     LocationListener locationListener;
     Button previous,verify;
     String phonenumber="";
-    EditText phone,description;
-    String specialization1="",description1="",location1="",phone1="";
+    EditText phone,description,otp;
+    String name1="",degree1="",college1="",fees1="",opentime1="",closetime1="",email1="",pass1="",specialization1="",
+            description1="",location1="",phone1="",city1="";
+    Button register;
+    DatabaseReference reff;
+    Doctor doctor;
+    String verificationCodeBySystem="";
+    FirebaseAuth mAuth;
+    Button check,checkotp;
+
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -51,6 +73,7 @@ public class Activity2_1 extends AppCompatActivity implements AdapterView.OnItem
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activity2_1);
+        mAuth=FirebaseAuth.getInstance();
         spinner=(Spinner)findViewById(R.id.spinner211);
         spinner.setOnItemSelectedListener(this);
         ArrayAdapter<CharSequence> adapter=ArrayAdapter.createFromResource(this,R.array.specialization , android.R.layout.simple_spinner_item );
@@ -64,12 +87,19 @@ public class Activity2_1 extends AppCompatActivity implements AdapterView.OnItem
             }
         });
         previous=(Button)findViewById(R.id.b211);
-        phone=(EditText) findViewById(R.id.editText9);
+        phone=(EditText) findViewById(R.id.editText6);
         verify=(Button)findViewById(R.id.b212);
-        phonenumber=phone.getText().toString();
+
         spinner=(Spinner)findViewById(R.id.spinner211);
         description=(EditText)findViewById(R.id.editText4);
+        description1=description.getText().toString();
+        phonenumber=phone.getText().toString();
+        specialization1=spinner.getSelectedItem().toString();
 
+        location1=userlocation.getText().toString();
+
+        otp=(EditText)findViewById(R.id.editText9);
+        checkotp=(Button)findViewById(R.id.b214);
         previous.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -79,21 +109,13 @@ public class Activity2_1 extends AppCompatActivity implements AdapterView.OnItem
         verify.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                phonenumber=phone.getText().toString();
-                specialization1=spinner.getSelectedItem().toString();
-                description1=description.getText().toString();
-                location1=userlocation.getText().toString();
-                phone1=phone.getText().toString();
-                Intent intent=new Intent(getApplicationContext(),Activity4.class);
-                intent.putExtra("specialization", specialization1);
-                intent.putExtra("description", description1);
-                intent.putExtra("location", location1);
-                intent.putExtra("phone", phone1);
+
+
                 if(phonenumber!="")
                 {
-                    Intent i = new Intent(getApplicationContext(), Activity3.class);
-                    i.putExtra("phoneNo", phonenumber);
-                    startActivity(i);
+                    phone1=phone.getText().toString().trim();
+                    sendVerificationCodeToUser(phone.getText().toString().trim());
+
                 }
                 else
                 {
@@ -103,7 +125,42 @@ public class Activity2_1 extends AppCompatActivity implements AdapterView.OnItem
 
             }
         });
+        register=(Button)findViewById(R.id.b213);
+        register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                registerUser();
+                Toast.makeText(Activity2_1.this, "User Registered Successfully", Toast.LENGTH_SHORT).show();
+                Intent intent=new Intent(Activity2_1.this, details_of_doctor.class);
+                intent.putExtra("city",city1);
+                startActivity(intent);
 
+            }
+        });
+        checkotp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String code = otp.getText().toString();
+
+                if (code.isEmpty() || code.length() < 6) {
+                    otp.setError("Wrong OTP...");
+                    otp.requestFocus();
+                    return;
+                }
+
+                verifyCode(code);
+            }
+        });
+        name1=getIntent().getStringExtra("name");
+        degree1=getIntent().getStringExtra("degree");
+        college1=getIntent().getStringExtra("college");
+        fees1=getIntent().getStringExtra("fees");
+        opentime1=getIntent().getStringExtra("opentime");
+        closetime1=getIntent().getStringExtra("closetime");
+        pass1=getIntent().getStringExtra("pass");
+        city1=getIntent().getStringExtra("city");
+
+        email1=getIntent().getStringExtra("email");
 
     }
 
@@ -126,6 +183,7 @@ public class Activity2_1 extends AppCompatActivity implements AdapterView.OnItem
             @Override
             public void onLocationChanged(Location location) {
                 userlocation.setText(location.toString());
+                location1=location.getLatitude()+" "+location.getLongitude();
             }
 
             @Override
@@ -152,4 +210,104 @@ public class Activity2_1 extends AppCompatActivity implements AdapterView.OnItem
             locationManager.requestLocationUpdates(locationManager.GPS_PROVIDER,0,0, locationListener);
         }
     }
+    protected void registerUser()
+    {
+        doctor=new Doctor();
+
+
+        description1=description.getText().toString();
+
+        reff= FirebaseDatabase.getInstance().getReference();
+
+
+
+        doctor.setName(name1);
+        doctor.setDegree(degree1);
+        doctor.setCollege(college1);
+        doctor.setFees(fees1);
+        doctor.setOpentime(opentime1);
+        doctor.setClosetime(closetime1);
+        doctor.setPass(pass1);
+        doctor.setDescription(description1);
+        doctor.setSpecialization(specialization1);
+        doctor.setLocation(location1);
+        doctor.setPhone(phone1);
+        doctor.setEmail(email1);
+        doctor.setCity(city1);
+        reff.child(city1).child("Doctor").child(phone1).setValue(doctor);
+
+
+
+
+
+    }
+    private void sendVerificationCodeToUser(String phoneNo) {
+        PhoneAuthProvider.getInstance().verifyPhoneNumber(
+                "+91"+phoneNo,        // Phone number to verify
+                60,                 // Timeout duration
+                TimeUnit.SECONDS,   // Unit of timeout
+                TaskExecutors.MAIN_THREAD,   // Activity (for callback binding)
+                mCallbacks);        // OnVerificationStateChangedCallbacks
+    }
+    private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks=new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+        @Override
+        public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
+            String code = phoneAuthCredential.getSmsCode();
+            if (code != null) {
+
+                verifyCode(code);
+            }
+        }
+
+        @Override
+        public void onVerificationFailed(@NonNull FirebaseException e) {
+            Toast.makeText(Activity2_1.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+            Log.i("OTP", e.getMessage());
+        }
+        @Override
+        public void onCodeSent(String s, PhoneAuthProvider.ForceResendingToken forceResendingToken) {
+            super.onCodeSent(s, forceResendingToken);
+            //Get the code in global variable
+            verificationCodeBySystem = s;
+        }
+    };
+
+    private void verifyCode(String codeByUser) {
+
+        PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationCodeBySystem, codeByUser);
+        signInTheUserByCredentials(credential);
+
+    }
+    private void signInTheUserByCredentials(PhoneAuthCredential credential) {
+
+
+        mAuth.signInWithCredential(credential)
+                .addOnCompleteListener(Activity2_1.this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+
+                        if (task.isSuccessful()) {
+
+
+
+                            //Perform Your required action here to either let the user sign In or do something required
+                            Toast.makeText(Activity2_1.this, "Phone Number is Successfully Verified", Toast.LENGTH_SHORT).show();
+                            FirebaseUser currentUser=mAuth.getCurrentUser();
+
+                            Log.i("User",""+currentUser.getPhoneNumber()+currentUser.getEmail());
+
+
+
+
+                        } else {
+                            Toast.makeText(Activity2_1.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+
+
+
+    }
 }
+
+

@@ -24,7 +24,7 @@ import java.util.concurrent.TimeUnit;
 
 public class Activity3 extends AppCompatActivity {
     String verificationCodeBySystem="";
-    EditText otp;
+    EditText otp1;
     Button check;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,16 +37,16 @@ public class Activity3 extends AppCompatActivity {
         sendVerificationCodeToUser(phoneNo);
         Log.i("Phone", ""+phoneNo);
         check=(Button)findViewById(R.id.b31);
-        otp=(EditText)findViewById(R.id.editText8);
+        otp1=(EditText)findViewById(R.id.editText8);
         check.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                String code = otp.getText().toString();
+                String code = otp1.getText().toString();
 
                 if (code.isEmpty() || code.length() < 6) {
-                    otp.setError("Wrong OTP...");
-                    otp.requestFocus();
+                    otp1.setError("Wrong OTP...");
+                    otp1.requestFocus();
                     return;
                 }
 
@@ -105,7 +105,8 @@ public class Activity3 extends AppCompatActivity {
                             Toast.makeText(Activity3.this, "Your Account has been created successfully!", Toast.LENGTH_SHORT).show();
 
                             //Perform Your required action here to either let the user sign In or do something required
-                            Intent intent = new Intent(getApplicationContext(), Activity4.class);
+                            Intent intent = new Intent(getApplicationContext(), Activity2_1.class);
+                            intent.putExtra("otpcheck", true);
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(intent);
 
