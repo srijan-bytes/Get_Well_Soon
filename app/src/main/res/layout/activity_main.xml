@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_blue_light"
+  android:background="@color/background"
     android:orientation="vertical"
     android:padding="30dp"
     tools:context=".MainActivity">
@@ -22,7 +22,8 @@
         android:layout_width="365dp"
         android:layout_height="wrap_content"
         android:textOff="Click here to use as doctor"
-        android:textOn="Click here to use patient" />
+        android:textOn="Click here to use patient"
+        android:background="@drawable/button_rounded"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="354dp"
