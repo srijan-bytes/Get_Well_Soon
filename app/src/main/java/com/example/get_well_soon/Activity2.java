@@ -4,11 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 public class Activity2 extends AppCompatActivity {
 
@@ -27,15 +25,15 @@ public class Activity2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_2);
-        name=(EditText)findViewById(R.id.name);
-        degree=(EditText)findViewById(R.id.degree);
-        college=(EditText)findViewById(R.id.college);
-        fees=(EditText)findViewById(R.id.fees);
-        opentime=(EditText)findViewById(R.id.opentime);
-        closetime=(EditText)findViewById(R.id.closetime);
-        email=(EditText)findViewById(R.id.mail);
-        pass=(EditText)findViewById(R.id.pass);
-        city=(EditText)findViewById(R.id.city);
+        name=(EditText)findViewById(R.id.name_doctor);
+        degree=(EditText)findViewById(R.id.degree_doctor);
+        college=(EditText)findViewById(R.id.college_doctor);
+        fees=(EditText)findViewById(R.id.fees_doctor);
+        opentime=(EditText)findViewById(R.id.opentime_doctor);
+        closetime=(EditText)findViewById(R.id.closetime_doctor);
+        email=(EditText)findViewById(R.id.email_doctor);
+        pass=(EditText)findViewById(R.id.pass_doctor);
+        city=(EditText)findViewById(R.id.city_doctor);
 
         next=(Button)findViewById(R.id.b22);
         previous=(Button)findViewById(R.id.b21);

@@ -31,6 +31,7 @@ import com.google.android.gms.tasks.TaskExecutors;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
 import com.google.firebase.database.DatabaseReference;
@@ -52,8 +53,9 @@ public class Activity2_1 extends AppCompatActivity implements AdapterView.OnItem
     DatabaseReference reff;
     Doctor doctor;
     String verificationCodeBySystem="";
-
+    FirebaseAuth mAuth;
     Button check,checkotp;
+
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -71,6 +73,7 @@ public class Activity2_1 extends AppCompatActivity implements AdapterView.OnItem
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activity2_1);
+        mAuth=FirebaseAuth.getInstance();
         spinner=(Spinner)findViewById(R.id.spinner211);
         spinner.setOnItemSelectedListener(this);
         ArrayAdapter<CharSequence> adapter=ArrayAdapter.createFromResource(this,R.array.specialization , android.R.layout.simple_spinner_item );
@@ -128,7 +131,8 @@ public class Activity2_1 extends AppCompatActivity implements AdapterView.OnItem
             public void onClick(View v) {
                 registerUser();
                 Toast.makeText(Activity2_1.this, "User Registered Successfully", Toast.LENGTH_SHORT).show();
-                Intent intent=new Intent(Activity2_1.this, MainActivity.class);
+                Intent intent=new Intent(Activity2_1.this, details_of_doctor.class);
+                intent.putExtra("city",city1);
                 startActivity(intent);
 
             }
@@ -147,7 +151,16 @@ public class Activity2_1 extends AppCompatActivity implements AdapterView.OnItem
                 verifyCode(code);
             }
         });
+        name1=getIntent().getStringExtra("name");
+        degree1=getIntent().getStringExtra("degree");
+        college1=getIntent().getStringExtra("college");
+        fees1=getIntent().getStringExtra("fees");
+        opentime1=getIntent().getStringExtra("opentime");
+        closetime1=getIntent().getStringExtra("closetime");
+        pass1=getIntent().getStringExtra("pass");
+        city1=getIntent().getStringExtra("city");
 
+        email1=getIntent().getStringExtra("email");
 
     }
 
@@ -170,6 +183,7 @@ public class Activity2_1 extends AppCompatActivity implements AdapterView.OnItem
             @Override
             public void onLocationChanged(Location location) {
                 userlocation.setText(location.toString());
+                location1=location.getLatitude()+" "+location.getLongitude();
             }
 
             @Override
@@ -199,20 +213,13 @@ public class Activity2_1 extends AppCompatActivity implements AdapterView.OnItem
     protected void registerUser()
     {
         doctor=new Doctor();
-        setContentView(R.layout.activity_4);
-        city1=getIntent().getStringExtra("city");
+
+
         description1=description.getText().toString();
-        reff= FirebaseDatabase.getInstance().getReference().child(city1).child(phone1);
-        name1=getIntent().getStringExtra("name");
-        degree1=getIntent().getStringExtra("degree");
-        college1=getIntent().getStringExtra("college");
-        fees1=getIntent().getStringExtra("fees");
-        opentime1=getIntent().getStringExtra("opentime");
-        closetime1=getIntent().getStringExtra("closetime");
-        pass1=getIntent().getStringExtra("pass");
+
+        reff= FirebaseDatabase.getInstance().getReference();
 
 
-        email1=getIntent().getStringExtra("email");
 
         doctor.setName(name1);
         doctor.setDegree(degree1);
@@ -227,7 +234,12 @@ public class Activity2_1 extends AppCompatActivity implements AdapterView.OnItem
         doctor.setPhone(phone1);
         doctor.setEmail(email1);
         doctor.setCity(city1);
-        reff.push().setValue(doctor);
+        reff.child(city1).child("Doctor").child(phone1).setValue(doctor);
+
+
+
+
+
     }
     private void sendVerificationCodeToUser(String phoneNo) {
         PhoneAuthProvider.getInstance().verifyPhoneNumber(
@@ -268,9 +280,8 @@ public class Activity2_1 extends AppCompatActivity implements AdapterView.OnItem
     }
     private void signInTheUserByCredentials(PhoneAuthCredential credential) {
 
-        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
 
-        firebaseAuth.signInWithCredential(credential)
+        mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(Activity2_1.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -278,14 +289,24 @@ public class Activity2_1 extends AppCompatActivity implements AdapterView.OnItem
                         if (task.isSuccessful()) {
 
 
+
                             //Perform Your required action here to either let the user sign In or do something required
                             Toast.makeText(Activity2_1.this, "Phone Number is Successfully Verified", Toast.LENGTH_SHORT).show();
+                            FirebaseUser currentUser=mAuth.getCurrentUser();
+
+                            Log.i("User",""+currentUser.getPhoneNumber()+currentUser.getEmail());
+
+
+
 
                         } else {
                             Toast.makeText(Activity2_1.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
+
+
+
     }
 }
 
