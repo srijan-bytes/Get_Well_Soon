@@ -33,17 +33,16 @@
         >
 
         <EditText
-            android:id="@+id/name"
+            android:id="@+id/phoneForLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="100dp"
             android:editable="true"
             android:ems="10"
+            android:hint="Phone Number"
             android:inputType="text"
-            android:text="Email"
-            android:textSize="30sp"
 
-            />
+            android:textSize="30sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -56,17 +55,26 @@
         >
 
         <EditText
-            android:id="@+id/degree"
+            android:id="@+id/passForLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="100dp"
             android:editable="true"
             android:ems="10"
-            android:inputType="text"
+            android:hint="Password"
 
-            android:text="Password"
+            android:inputType="text"
             android:textSize="30sp" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <EditText
+        android:id="@+id/cityForLogin"
+        android:layout_width="354dp"
+        android:layout_height="68dp"
+        android:ems="10"
+        android:hint="City"
+        android:inputType="textPersonName"
+        android:textSize="30sp" />
 
     <LinearLayout
         android:layout_width="354dp"
@@ -74,7 +82,7 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/signin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
@@ -83,7 +91,7 @@
             android:text="SIGN IN" />
 
         <Button
-            android:id="@+id/button5"
+            android:id="@+id/register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
@@ -96,26 +104,6 @@
     <LinearLayout
         android:layout_width="354dp"
         android:layout_height="167dp"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/b01"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/button_rounded"
-            android:text="Doctor" />
-
-        <Button
-            android:id="@+id/b02"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/button_rounded"
-
-            android:text="Patient" />
-
-
-    </LinearLayout>
+        android:orientation="horizontal"/>
 
 </LinearLayout>
