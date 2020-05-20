@@ -78,5 +78,13 @@ android:background="@color/background"
         android:id="@+id/button4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="NEXT" />
+        android:text="NEXT"
+        android:background="@drawable/button_rounded"/>
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/doctor_profi" />
+
 </LinearLayout>

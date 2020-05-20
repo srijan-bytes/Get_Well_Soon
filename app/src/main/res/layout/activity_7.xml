@@ -82,6 +82,12 @@
 
         </LinearLayout>
 
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="228dp"
+            android:layout_height="163dp"
+            app:srcCompat="@drawable/doctor_profi" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

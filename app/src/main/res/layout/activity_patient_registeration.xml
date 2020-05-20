@@ -141,8 +141,16 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Check OTP"
+                android:layout_marginTop="10dp"
                 android:background="@drawable/button_rounded"/>
+
         </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/doctor_profi" />
 
     </LinearLayout>
 
@@ -156,5 +164,9 @@
         android:background="@drawable/button_rounded"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+        tools:layout_editor_absoluteX="131dp"
+        tools:layout_editor_absoluteY="555dp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
