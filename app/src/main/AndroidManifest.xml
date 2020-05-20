@@ -38,7 +38,7 @@
         <activity
             android:name=".MapsActivity1"
             android:label="@string/title_activity_maps1" />
-        <activity android:name=".Activity7_1"/>
+
         <activity android:name=".Activity2_1" />
         <activity android:name=".Activity2" />
         <activity android:name=".Activity7" />
