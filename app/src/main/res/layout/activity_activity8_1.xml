@@ -69,6 +69,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@drawable/button_rounded"
             android:text="Previous" />
 
         <Button
@@ -76,12 +77,15 @@
             android:layout_width="165dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="Locate Doctor" />
+            android:text="Locate Doctor"
+            android:background="@drawable/button_rounded"/>
     </LinearLayout>
 
     <Button
         android:id="@+id/button8"
         android:layout_width="347dp"
         android:layout_height="wrap_content"
-        android:text="Home" />
+        android:text="Home"
+        android:background="@drawable/button_rounded"
+        android:layout_marginTop="10dp"/>
 </LinearLayout>
