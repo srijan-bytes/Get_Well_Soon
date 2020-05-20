@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.get_well_soon.ui.login.LoginActivity;
+
 
 public class Activity1 extends AppCompatActivity {
     Button sign,register,previous;
@@ -39,8 +39,6 @@ public class Activity1 extends AppCompatActivity {
     }
     public void sign()
     {
-        Intent i=new Intent(this, LoginActivity.class);
-        startActivity(i);
     }
     public void register()
     {

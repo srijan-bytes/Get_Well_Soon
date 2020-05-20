@@ -49,10 +49,13 @@ public class MapsActivity1 extends AppCompatActivity implements OnMapReadyCallba
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+            String location=getIntent().getStringExtra("location");
+            location=location.trim();
+            int p=location.indexOf(' ');
 
         // Add a marker in Sydney and move the camera
-        LatLng mnnit = new LatLng(25.4920102, 81.8617276);
-        mMap.addMarker(new MarkerOptions().position(mnnit).title("Marker in MNNIT"));
+        LatLng mnnit = new LatLng(Float.parseFloat(location.substring(0,p)), Float.parseFloat(location.substring(p+1)));
+        mMap.addMarker(new MarkerOptions().position(mnnit).title("Marker in Doctor's Clinic"));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(mnnit, 15));
         setMapLongClick(mMap);
     }

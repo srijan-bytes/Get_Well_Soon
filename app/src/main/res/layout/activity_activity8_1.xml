@@ -10,7 +10,7 @@
     tools:context=".Activity8">
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/textViewspecialization"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -22,7 +22,7 @@
 
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/textViewdescription"
         android:layout_width="wrap_content"
         android:layout_height="300dp"
         android:text="Description of doctor"
@@ -33,7 +33,7 @@
         />
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/textViewphone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -42,21 +42,47 @@
         android:text="phone No"
         android:textSize="30sp"
         />
+
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="124dp"
         android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/b21"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:background="@drawable/button_rounded"
-        android:text="MAKE AN APPOINTMENT"
-        android:textSize="30sp"
-        android:layout_marginTop="30dp"
-        />
+        <Button
+            android:id="@+id/appointment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_rounded"
+            android:text="MAKE AN APPOINTMENT"
+            android:textSize="30sp" />
 
-</LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="337dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/buttonprevious"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Previous" />
+
+        <Button
+            android:id="@+id/buttonlocate"
+            android:layout_width="165dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Locate Doctor" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button8"
+        android:layout_width="347dp"
+        android:layout_height="wrap_content"
+        android:text="Home" />
 </LinearLayout>
