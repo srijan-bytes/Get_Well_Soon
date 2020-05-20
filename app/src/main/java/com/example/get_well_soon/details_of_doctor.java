@@ -19,7 +19,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class details_of_doctor extends AppCompatActivity {
     Button logout;
-    DatabaseReference  reff1;
+    DatabaseReference  reff;
     FirebaseAuth mAuth;
     FirebaseUser current;
     String city="";
@@ -28,6 +28,9 @@ public class details_of_doctor extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        DatabaseReference reff = FirebaseDatabase.getInstance().getReference();
+        mAuth=FirebaseAuth.getInstance();
 
         setContentView(R.layout.activity_details_of_doctor);
         mAuth=FirebaseAuth.getInstance();
