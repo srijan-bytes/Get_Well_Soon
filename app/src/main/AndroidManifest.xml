@@ -21,8 +21,6 @@
         <activity android:name=".patient_registeration" />
         <activity android:name=".Activity8_1" />
         <activity android:name=".Activity8" />
-        <activity android:name=".Activity4" />
-        <activity android:name=".Activity3" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
