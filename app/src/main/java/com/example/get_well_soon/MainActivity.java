@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
                 {
                     user="doctor";
                     useAs.setText("Welcome Doctor");
+                    
 
                 }
                 else

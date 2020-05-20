@@ -13,7 +13,7 @@ android:background="@color/background"
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="1dp"
         android:ems="10"
         android:inputType="text"
         android:text="Full Name"
@@ -73,4 +73,10 @@ android:background="@color/background"
         android:textSize="30sp"
         android:layout_marginTop="20dp"
          />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/doctor_profi" />
 </LinearLayout>
