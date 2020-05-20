@@ -41,7 +41,7 @@
             android:editable="true"
             android:ems="10"
             android:hint="Phone Number"
-            android:inputType="text"
+            android:inputType="phone"
 
             android:textSize="30sp" />
 
