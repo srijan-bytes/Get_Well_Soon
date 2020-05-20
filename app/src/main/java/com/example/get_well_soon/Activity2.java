@@ -37,12 +37,7 @@ public class Activity2 extends AppCompatActivity {
 
         next=(Button)findViewById(R.id.b22);
         previous=(Button)findViewById(R.id.b21);
-        previous.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                previous();
-            }
-        });
+
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,9 +73,5 @@ public class Activity2 extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void previous()
-    {
-        Intent i=new Intent(this, Activity1.class);
-        startActivity(i);
-    }
+
 }
