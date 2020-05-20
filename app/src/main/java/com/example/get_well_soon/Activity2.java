@@ -80,7 +80,7 @@ public class Activity2 extends AppCompatActivity {
 
     private void previous()
     {
-        Intent i=new Intent(this, Activity1.class);
+        Intent i=new Intent(this, MainActivity.class);
         startActivity(i);
     }
 }

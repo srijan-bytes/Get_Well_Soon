@@ -19,11 +19,11 @@
 
     <ToggleButton
         android:id="@+id/toggleButton"
-        android:layout_width="365dp"
+        android:layout_width="328dp"
         android:layout_height="wrap_content"
+        android:background="@drawable/button_rounded"
         android:textOff="Click here to use as doctor"
-        android:textOn="Click here to use patient"
-        android:background="@drawable/button_rounded"/>
+        android:textOn="Click here to use patient" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="354dp"

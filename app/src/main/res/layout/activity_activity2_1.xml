@@ -68,6 +68,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:layout_marginTop="10dp"
                 android:background="@drawable/button_rounded"
                 android:text="Check OTP" />
         </LinearLayout>
@@ -82,23 +83,6 @@
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
-
-        <Button
-            android:id="@+id/b211"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/button_rounded"
-            android:text="PREVIOUS" />
-
-        <Button
-            android:id="@+id/b213"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/button_rounded"
-            android:text="Verify Phone Number" />
-
 
 
     </LinearLayout>
@@ -123,5 +107,25 @@
             android:layout_width="233dp"
             android:layout_height="43dp" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/b211"
+        android:layout_width="172dp"
+        android:layout_height="47dp"
+        android:layout_weight="1"
+        android:background="@drawable/button_rounded"
+        android:text="PREVIOUS"
+        tools:layout_editor_absoluteX="35dp"
+        tools:layout_editor_absoluteY="678dp" />
+
+    <Button
+        android:id="@+id/b213"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@drawable/button_rounded"
+        android:text="Verify Phone Number"
+        tools:layout_editor_absoluteX="237dp"
+        tools:layout_editor_absoluteY="677dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
