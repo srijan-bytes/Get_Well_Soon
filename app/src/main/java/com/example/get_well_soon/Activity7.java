@@ -60,7 +60,7 @@ public class Activity7 extends AppCompatActivity implements AdapterView.OnItemSe
             @Override
             public void onClick(View v) {
                 Intent i=new Intent(Activity7.this, Activity8.class);
-                i.putExtra("phone", "9264922933");
+                i.putExtra("phone", "7007920906");
                 startActivity(i);
 
             }
@@ -73,11 +73,7 @@ public class Activity7 extends AppCompatActivity implements AdapterView.OnItemSe
         startActivity(i);
     }
 
-    private void next()
-    {
-        Intent i=new Intent(this, Activity7_1.class);
-        startActivity(i);
-    }
+
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
